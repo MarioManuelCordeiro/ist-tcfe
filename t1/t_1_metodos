@@ -1,4 +1,51 @@
 close all
 clear all
 
-pkg load 
+pkg load symbolic
+
+syms R1 R2 R3 R4 R5 R6 R7
+syms Id Va Kb Kc
+%% se quiser alterar os valores de R, Id, Va, Kb e Kc, tenho que fazer aqui
+R1 = 1.04309563061e03;
+R2 = 2.01744623407e03;
+R3 = 3.13691375104e03;
+R4 = 4.15429988186e03;
+R5 = 3.07915362723e03;
+R6 = 2.02592738504e03;
+R7 = 1.04226655522e03;
+Va = 5.23936486299;
+Id = 1.03899051042e-03;
+Kb = 7.31630468385e-03;
+Kc = 8.25247516035e03;
+
+
+R = [R1 R2 R3 R4 R5 R6 R7];
+G = 1./R;
+%%para o método dos nodos
+syms V1 V2 V3 V4 V5 V6
+V = [V1 V2 V3 V4 V5 V6]';
+%para o método do Mesh
+syms I1 I2 I3 I4
+I = [I1 I2 I3 I4]';
+%% Resolução das equações do Método dos Nodos
+Mnodos = [(G(1)+G(2)+G(3)) -G(3) 0 -G(2) 0 0
+          -G(3) (1/Kc+G(3)+G(4)+G(5)) -1/Kc 0 -G(5) 0
+           0 0 -G(7) 0 0 (G(6)+G(7))
+           0 -1/Kc (1/Kc-G(7)) 0 0 G(7)
+           Kb+G(2) -Kb 0 -G(2) 0 0
+           Kb (-(Kb+G(5))) 0 0 G(5) 0];
+           
+ C = [Va*G(1) Id 0 0 0 Id]';
+ 
+ V = Mnodos\C;
+ V';
+ 
+ %% Resolução das equações do Método do Mesh
+ Mmesh = [ 0 0 0 1
+           R4 0 (R4+R6+R7-Kc) 0
+          (R1+R3+R4) R3 R4 0
+          R3*Kb (R3*Kb-1) 0 0];
+ D = [Id 0 Va 0]';
+ 
+ I = Mmesh\D;
+ I'
