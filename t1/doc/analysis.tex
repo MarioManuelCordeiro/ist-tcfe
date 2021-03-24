@@ -1,19 +1,55 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
-theoretically, in terms of its time and frequency responses.
+In this section, the circuit shown in Figure~\ref{fig:rcm} is analyzed
+theoretically, by two different methods, which use the characteristics of the components present in the circuit and one of the two Kirchhoff Laws.
+For the mesh method we used Kirchhoff's voltage law and for the nodal method we used Kirchhoff's current law.
+Besides the independent voltage sources and current sources, the other components of the circuit are, the resistors, which obey Ohm's law, and dependent voltage sources and current sources.
 
-\section{Time response}
+\section{Mesh Method}
 
-The circuit consists of a single V-R-C loop where a current $i(t)$ circulates. The
-voltage source $v_I(t)$ drives its input, and the output voltage $v_O(t)$ is taken from
-the capacitor terminals. Applying the Kirchhoff Voltage Law (KVL), a single
-equation for the single loop in the circuit can be written as
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{mesh_diagram.pdf}
+\caption{Voltage driven serial RC circuit.}
+\label{fig:rc}
+\end{figure}
+
+
+To determine the values of $V_a$ an $V_b$ by applying Kirchhoff's voltage law, 4 equations are required. So the first equation can be writen as:
 
 \begin{equation}
-  Ri(t) + v_O(t) = v_I(t).
+  I_d = I_4.
   \label{eq:kvl}
+\end{equation}
+
+Applying Kirxhhoff's Voltage Law (KVL) to equation~(\ref{eq:kvl}) we get the following:
+\begin{equation}
+  I3 = -\frac{R_4I_1}{R_4 + R_6 + R_7K_c}.
+\end{equation}
+
+And
+\begin{equation}
+  V_a(t) = (R_1 + R_3 + R_4)I_1 + R_4I_3 R_3I_2.
+  \label{eq:kvl2}
+\end{equation}
+
+Knowing that:
+
+\begin{equation}
+  I_2 = I_b,
+  \label{eq:vo_sol}
+\end{equation}
+
+And
+\begin{equation}
+  v_b = \frac{I_b}{V_b} = \frac{I_2}{V_b}
+  \label{eq:vo_nat}
+\end{equation}
+
+We get:
+
+\begin{equation}
+  I_1(R_3K_b) + I_2(R_3K_b -1) = 0 
 \end{equation}
 
 \begin{table}[h]
@@ -29,48 +65,47 @@ equation for the single loop in the circuit can be written as
   \label{tab:op}
 \end{table}
 
-Because $v_O$ is the voltage between capacitor C's plates, it is related to the
-current $i$ by
+\section{Nodal Method}\label{sec:frequency-response}
+
+In the nodal method, the circuit requires 6 equations to determine the values of V2, V3, V4, V5, V6, V7, which are obtained by applying Kirchhoff's current Law and a relation between the potential difference of two nodes and two other nodes, whose potential difference is imposed by a dependent voltage source. 
+
+Since we considered $V_0$ to be the ground, which means that $V_o$ = 0 and therefore:
 \begin{equation}
-  i(t) = C\frac{dv_O}{dt}.
+	V_i = V_a.
+	\label{eq:kvl}
 \end{equation}
 
-Hence, Equation~(\ref{eq:kvl}) can be rewritten as
+We get the following equations by applying Kirchhoff's current law at different nodes:
+
+For node 2 we have:
 \begin{equation}
-  RC\frac{dv_O}{dt} + v_O(t) = v_I.
-  \label{eq:kvl2}
+	0 = V_1\frac{-1}{R_2} + V_1(\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}) + V_5\frac{-1}{R_2} + V_4\frac{-1}{R_3}.
 \end{equation}
 
-Equation~(\ref{eq:kvl2}) is a linear differencial equation whose solution is a
-superposition of a natural solution $v_{On}$ and a forced solution $v_{Of}$:
-
+Node 3:
 \begin{equation}
-  v_O(t) = v_{On}(t) + v_{Of}(t).
-  \label{eq:vo_sol}
+	0 = V_1(\frac{-1}{R_2} - K_b) + V_3\frac{-1}{R_2} + V_4(K_b).
 \end{equation}
 
-As learned in the theory classes the natural solution is of the form
+Node 5:
 \begin{equation}
-  v_{On}(t) = Ae^{-\frac{t}{RC}},
-  \label{eq:vo_nat}
-\end{equation}
-where $A$ is an integration constant.
-
-The forced solution is of the form given in Equation~(\ref{eq:vo_for}) and is
-illustrated in Figure~\ref{fig:forced}.
-
-\begin{equation}
-  V_{Of}(t) = |\bar{V}_{Of}| cos(\omega t + \angle \bar{V}_{Of}),
-  \label{eq:vo_for}
+	I_d = V_2(K_b) + V_4(\frac{-1}{R_5} - K_b) + V_5\frac{1}{R_5}.
 \end{equation}
 
-\section{Frequency response}
+Node 6:
+\begin{equation}
+	0 = V_6(\frac{1}{R_6} - \frac{1}{R_7}) + V_7\frac{-1}{R_7} .
+\end{equation}
 
-\begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{mesh_diagram.pdf}
-\caption{Voltage driven serial RC circuit.}
-\label{fig:rc}
-\end{figure}
+Node 7:
+\begin{equation}
+	0 = V_4 + V_6(\frac{K_c}{R_6}) - V_7 .
+\end{equation}
+
+And finally for node 4:
+\begin{equation}
+	-I_d = V_2\frac{-1}{R_3} + V_4(\frac{1}{R_3} + \frac{1}{R_4} + \frac{1}{R_5}) + V_5\frac{-1}{R_5} + V_6\frac{-1}{R_7} + V_7\frac{1}{R_7}.
+\end{equation}
 
 \begin{table}[h]
   \centering
@@ -84,6 +119,4 @@ illustrated in Figure~\ref{fig:forced}.
     Volt.}
   \label{tab:op}
 \end{table}
-
-
 
