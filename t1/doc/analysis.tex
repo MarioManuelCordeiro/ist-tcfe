@@ -16,6 +16,19 @@ equation for the single loop in the circuit can be written as
   \label{eq:kvl}
 \end{equation}
 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{octave_theorical_current_values}
+  \end{tabular}
+  \caption{Operating point. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+    Volt.}
+  \label{tab:op}
+\end{table}
+
 Because $v_O$ is the voltage between capacitor C's plates, it is related to the
 current $i$ by
 \begin{equation}
@@ -72,17 +85,5 @@ illustrated in Figure~\ref{fig:forced}.
   \label{tab:op}
 \end{table}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{octave_theorical_current_values}
-  \end{tabular}
-  \caption{Operating point. A variable preceded by @ is of type {\em current}
-    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
-    Volt.}
-  \label{tab:op}
-\end{table}
 
 
