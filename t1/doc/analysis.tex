@@ -1,6 +1,21 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [mA]} \\ \hline
+    \input{valores_constantes}
+  \end{tabular}
+  \caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
+    Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
+    Siemens; other variables are of type {\it voltage} and expressed in
+    Volt.}
+  \label{tab:op}
+\end{table}
+
 In this section, the circuit shown in Figure~\ref{fig:rc} is analyzed
 theoretically, by two different methods, which use the characteristics of the components present in the circuit and one of the two Kirchhoff Laws.
 
@@ -14,7 +29,7 @@ The simulator uses a dummy voltage source placed in Node 6 to measure the curren
 \begin{figure}[h] \centering
 \includegraphics[width=0.6\linewidth]{mesh_diagram.pdf}
 \caption{Circuit analyzed in the lab.}
-\label{fig:rc}
+\label{fig:rc1}
 \end{figure}
 
 
@@ -28,7 +43,7 @@ To determine the values of the current that goes through the branches of circuit
 
 Applying Kirxhhoff's Voltage Law (KVL) to the Mesh with $I_3$ and to the Mesh with $I_1$, we get the following second and third equations:
 \begin{equation}
-  0 = R_4I_1 + (R_4 + R_6 + R_7-K_c)I3,
+  0 = R_4I_1 + (R_4 + R_6 + R_7-K_c)I_3,
 \end{equation}
 
 and
@@ -60,7 +75,7 @@ We get the fourth equation:
   \centering
   \begin{tabular}{|l|r|}
     \hline    
-    {\bf Name} & {\bf Value [A]} \\ \hline
+    {\bf Name} & {\bf Value [mA]} \\ \hline
     \input{octave_theorical_current_values}
   \end{tabular}
   \caption{Operating point. A variable preceded by @ is of type {\em current}
@@ -121,4 +136,5 @@ And finally for node 4:
     Volt.}
   \label{tab:op}
 \end{table}
+
 
