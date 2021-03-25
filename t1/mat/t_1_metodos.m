@@ -76,7 +76,7 @@ fprintf(doc_voltage,"V(4) & %f \\\\  \\hline \n", V4);
 fprintf(doc_voltage,"V(5) & %f \\\\  \\hline \n", V5);
 fprintf(doc_voltage,"V(6) & %f \\\\  \\hline \n", V6);
 fprintf(doc_voltage,"V(7) & %f \\\\  \\hline \n", V7);
-fprintf(doc_voltage,"V(8) & %f \\\\  \\hline", 0);
+fprintf(doc_voltage,"V(8) & %f \\\\  \\hline", V6);
 fclose(doc_voltage);
 
 %Currents

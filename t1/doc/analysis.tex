@@ -1,33 +1,37 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:rcm} is analyzed
+In this section, the circuit shown in Figure~\ref{fig:rc} is analyzed
 theoretically, by two different methods, which use the characteristics of the components present in the circuit and one of the two Kirchhoff Laws.
-For the mesh method we used Kirchhoff's voltage law and for the nodal method we used Kirchhoff's current law.
+
+For the Mesh method we used Kirchhoff's voltage law and for the nodal method we used Kirchhoff's current law.
 Besides the independent voltage sources and current sources, the other components of the circuit are, the resistors, which obey Ohm's law, and dependent voltage sources and current sources.
+
+The simulator uses a dummy voltage source placed in Node 6 to measure the current that passes through $I_c$, thus creating the Node 8, that has the same voltage as Node 6.
 
 \section{Mesh Method}
 
 \begin{figure}[h] \centering
 \includegraphics[width=0.6\linewidth]{mesh_diagram.pdf}
-\caption{Voltage driven serial RC circuit.}
+\caption{Circuit analyzed in the lab.}
 \label{fig:rc}
 \end{figure}
 
 
-To determine the values of $V_a$ an $V_b$ by applying Kirchhoff's voltage law, 4 equations are required. So the first equation can be writen as:
+To determine the values of the current that goes through the branches of circuit in the Figure~\ref{fig:rc} by the Mesh method, there's only the need to use 4 equations by applying Kirchhoff's voltage law or other relations to obtain the values of 4 unknown values of the currents $I_1$, $I_2$, $I_3$ and $I_4$, as the current of each branch can be obtained by a linear combination of these currents.
+	The first equation can be writen as:
 
 \begin{equation}
   I_d = I_4.
   \label{eq:kvl}
 \end{equation}
 
-Applying Kirxhhoff's Voltage Law (KVL) to equation~(\ref{eq:kvl}) we get the following:
+Applying Kirxhhoff's Voltage Law (KVL) to the Mesh with $I_3$ and to the Mesh with $I_1$, we get the following second and third equations:
 \begin{equation}
-  I3 = -\frac{R_4I_1}{R_4 + R_6 + R_7K_c}.
+  0 = R_4I_1 + (R_4 + R_6 + R_7-K_c)I3,
 \end{equation}
 
-And
+and
 \begin{equation}
   V_a(t) = (R_1 + R_3 + R_4)I_1 + R_4I_3 R_3I_2.
   \label{eq:kvl2}
@@ -46,7 +50,7 @@ And
   \label{eq:vo_nat}
 \end{equation}
 
-We get:
+We get the fourth equation:
 
 \begin{equation}
   I_1(R_3K_b) + I_2(R_3K_b -1) = 0 
@@ -56,12 +60,11 @@ We get:
   \centering
   \begin{tabular}{|l|r|}
     \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    {\bf Name} & {\bf Value [A]} \\ \hline
     \input{octave_theorical_current_values}
   \end{tabular}
   \caption{Operating point. A variable preceded by @ is of type {\em current}
-    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
-    Volt.}
+    and expressed in Ampere}
   \label{tab:op}
 \end{table}
 
@@ -71,7 +74,7 @@ In the nodal method, the circuit requires 6 equations to determine the values of
 
 Since we considered $V_0$ to be the ground, which means that $V_o$ = 0 and therefore:
 \begin{equation}
-	V_i = V_a.
+	V_1 = V_a.
 	\label{eq:kvl}
 \end{equation}
 
@@ -79,12 +82,12 @@ We get the following equations by applying Kirchhoff's current law at different 
 
 For node 2 we have:
 \begin{equation}
-	0 = V_1\frac{-1}{R_2} + V_1(\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}) + V_5\frac{-1}{R_2} + V_4\frac{-1}{R_3}.
+	 V_a\frac{1}{R_1} = V_2(\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}) + V_3\frac{-1}{R_2} + V_4\frac{-1}{R_3}.
 \end{equation}
 
 Node 3:
 \begin{equation}
-	0 = V_1(\frac{-1}{R_2} - K_b) + V_3\frac{-1}{R_2} + V_4(K_b).
+	0 = V_2(\frac{-1}{R_2} - K_b) + V_3\frac{1}{R_2} + V_4(K_b).
 \end{equation}
 
 Node 5:
@@ -94,7 +97,7 @@ Node 5:
 
 Node 6:
 \begin{equation}
-	0 = V_6(\frac{1}{R_6} - \frac{1}{R_7}) + V_7\frac{-1}{R_7} .
+	0 = V_6(\frac{1}{R_6} + \frac{1}{R_7}) + V_7\frac{-1}{R_7} .
 \end{equation}
 
 Node 7:
@@ -111,11 +114,10 @@ And finally for node 4:
   \centering
   \begin{tabular}{|l|r|}
     \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    {\bf Name} & {\bf Value [V]} \\ \hline
     \input{octave_theorical_voltage_values}
   \end{tabular}
-  \caption{Operating point. A variable preceded by @ is of type {\em current}
-    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+  \caption{Operating point. The variables are of type {\it voltage} and expressed in
     Volt.}
   \label{tab:op}
 \end{table}
