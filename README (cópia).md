@@ -6,7 +6,7 @@
 então seria de esperar que a forma matricial do sistema de equações lineares obtida pela aplicação dos métodos abordados na secção teórica seja invertível, e assim, terá uma solução possível e determinada.
 	É de realçar que os valores obtidos da simulação estão em concordância com os valores obtidos pelos métodos de Mesh e dos Nodos, apresentando diferenças negligentes entre os valores, devido à apresentação dos valores no simulador e no programa Octave.
 	Logo, pode-se verificar que os métodos abordados na secção téorica (Método do Mesh e Método dos Nodos) dão as mesmas soluções que o simulador, sendo que se confirma a legitimidade dos métodos utilizados, tal como se esperava, sendo que é possível que o programa do simulador recorra a estes metódos para simular o circuito.
-	Contudo, o simulador e os métodos utilizados produzem soluções que poderão não se verificar num circuito real, devido a vários fatores, (entre eles o efeito de Joule nos cabos que ligam os componentes, e outros possíveis erros aleatórios e ou sistemáticos, que comprometem a precisão e a exatidão dos resultados), mas os seus resultados não deixam de ser uma aproximação dos valores reais que se poderiam verificar numa versão real do circuito analisado.
+	Contudo, o simulador e os métodos utilizados produzem soluções que poderão não se verificar num circuito real, devido a vários fatores, (entre eles o efeito de Joule nos cabos que ligam os componentes, e outros possíveis erros aleatórios e ou sistemáticos, que comprometem a precisão e a exatidão dos resultados), mas os seus resultados não deixam de ser uma boa aproximação dos valores reais que se verificam numa versão real do circuito analisado.
 	
 	
 	
