@@ -1,0 +1,36 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+\begin{table}[!h]
+ \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{op_tab}
+  \end{tabular}
+  \caption{Operating point. A variable preceded by @ is of type {\em current}
+    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+    Volt.}
+  \label{tab:op}
+\end{table}
+
+The simulated values we obtained are represented in table 4 and in the following subsection we will compare this result to the theoretical values obtained earlier.
+
+\subsection{Operating point Analysis}
+
+
+\begin{table}[!h]
+ \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{erros_relativos}
+  \end{tabular}
+  \caption{Relative errors between the simulation values and the values obtained by the theoretical methods.
+   A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\it voltage}
+    and expressed in Volt.}
+  \label{tab:op1}
+\end{table}
+
+As seen in Table~\ref{tab:op1}, comparing with the other tables, the errors we obtained were very close to zero and therefore are negligible as expected because we analyzed a very simple circuit without any temporal variation.
+Some of the errors obtained were equal to zero, but in reality, they are actually greater than zero. This happens due to rounding done by the simulator and by Octave, that also caused the rise of some non-zero errors.

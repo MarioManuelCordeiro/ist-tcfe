@@ -1,0 +1,49 @@
+*
+*NGSPICE simulation script
+*    Circuit_t_1
+*
+
+.options savecurrents
+
+
+*Description of the circuit
+
+*Independent Voltage source
+Va 1 0 5.23936486299
+
+*Independent Current source
+Id 7 5 1.03899051042m
+
+*Dummy voltage source to measure the current in R6
+Vo 6 8 0
+
+*2 controled elements
+H1 4 7 Vo 8.25247516035K
+G1 5 3 2 4 7.31630468385m
+
+*Resist
+R1 1 2 1.04309563061K
+R2 3 2 2.01744623407K
+R3 2 4 3.13691375104K
+R4 4 0 4.15429988186K
+R5 4 5 3.07915362723K
+R6 0 6 2.02592738504K
+R7 8 7 1.04226655522K
+
+*Comandos
+
+.control
+
+
+op
+
+echo  "op_TAB"
+print all
+echo  "op_END"
+
+quit
+.endc
+
+.end
+
+
