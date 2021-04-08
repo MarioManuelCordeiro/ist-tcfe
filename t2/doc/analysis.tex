@@ -15,7 +15,7 @@ In node 1 we also considered:
 
 
 Using the equations above, we get the following matrix equation:
-\usepackage{amsmath}
+
 \begin{gather}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
@@ -73,7 +73,6 @@ The Kirchhoff's Laws can also be applied here, leading to the same equations use
 \end{equation}
 
 With former equations, we can form the matrix equation used bellow:
-\usepackage{amsmath}
 \begin{gather}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
@@ -84,10 +83,11 @@ With former equations, we can form the matrix equation used bellow:
 		0 & 0 & 0 & -K_dG_6 & -1 & 0 & K_dG_6 & 1 \\
 		-G_1 & G_1 & 0 & -(G_4 + G_6) & G_4 & 0 & G_7 & 0
 	\end{bmatrix}
-	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 
+	\end{bmatrix}
 	=
-	\begin{bmatrix} 0 \\ 0 \\ V_x \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
-	
+	\begin{bmatrix} 0 \\ 0 \\ V_x \\ 0 \\ 0 \\ 0 \\ 0 
+	\end{bmatrix}
 \end{gather}
 
 Using octave we get the following data:
@@ -109,26 +109,25 @@ Using octave we get the following data:
 
 \subsection{Natural Solution}
 
-In this section we will start by analyzing the natural solution ($V_6_n(t)$), where t varies from 0 to 20 ms, by using the equivalent resistance we calculated before.
+In this section we will start by analyzing the natural solution , where t varies from 0 to 20 ms, by using the equivalent resistance we calculated before.
 
 Assim that $V_0 = V_x$, the natural solution of the capacitor is  
 \begin{equation}
-	V_6_n(t) = V_xe^{-(t)/CR_e_q}
+	V_6n(t) = V_xe^{-(t)/CR_eq}
 \end{equation}
 
 We can now plot the graph of the solution for t raging from 0 to 20 ms:
-\usepackage{graphicx}
-\graphicspath{ {./images/} }
 
-	a
-	
-	\includegraphics{universe}
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{natural.eps}
+\caption{.}
+\label{fig:rc1}
+\end{figure}
 	
 \subsection{Forced Solution}
 
 The nodal analysis of this circuit, is done with the tension phasor being equal to 1 and the condenser has an impedance of$\frac{1}{iwc}$.
 After this, we make the same analysis, which can be represented by the following matrix:
-\usepackage{amsmath}
 \begin{gather}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
@@ -139,10 +138,11 @@ After this, we make the same analysis, which can be represented by the following
 		0 & 0 & 0 & -K_dG_6 & -1 & 0 & K_dG_6 & 1 \\
 		0 & G_3 & 0 & -G_4 & -(G_3 + G_4 + G_5) & G_5 + Y_c & G_7 & -(G_7 + Y_c)
 	\end{bmatrix}
-	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 
+	\end{bmatrix}
 	=
-	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
-	
+	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 
+	\end{bmatrix}
 \end{gather}
 
 \begin{table}[!h]
@@ -178,7 +178,7 @@ By superimposing the equations of both the natural and forced solutions, we obta
 
 By plotting this function, for t in range of -5 to 20 ms, we get the graph below:
 
-\usepackage{graphicx}
+
 \graphicspath{ {./images/} }
 
 a
@@ -203,7 +203,7 @@ The magnitude plot has values in dB, which respect the following equation:
 
 The graphics of the plotted functions $v_c(f)$ and $v_6(f)$:
 
-\usepackage{graphicx}
+
 \graphicspath{ {./images/} }
 
 a
@@ -211,7 +211,7 @@ a
 \includegraphics{universe}
 
 
-\usepackage{graphicx}
+
 \graphicspath{ {./images/} }
 
 a

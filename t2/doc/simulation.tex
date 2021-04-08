@@ -1,7 +1,6 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-
 \subsection{Operating point Analysis (for t<0 and $v_s(t) = 0$)}
 
 Ngspice was used to perform an operating point analysis for t<0 (obtaining table #) and by setting $v_s = 0$ and replacing the capacitor with a voltage sorce $V_x = V_6 - V_8$, the voltage and current values, present in tables below, were obtained.
@@ -44,7 +43,7 @@ Ngspice was used to perform an operating point analysis for t<0 (obtaining table
 The first step in order to compute the natural response of $v_6$ is to set $v_s(t) = 0$ and set initial conditions so that $v_6$ and $v_s$ have the same values obtained in table 10, which ensures that in the start of the transient analysis the capacitor is fully charged. The graphic in figure 11 was obtained by executing a transient analysis, with t ranging from o to 20 ms.
 
 By analyzing the graphic we can see a quick drop in voltage from just a little above 8 ms to 0, which is due to the fact that the capacitor is just discharging and since there are no independent voltage sources, there is no voltage being provided to $v_6$.
-\usepackage{graphicx}
+
 \graphicspath{ {./images/} }
 
 a
@@ -54,7 +53,7 @@ a
 \subsection{Transient Analysis - total Response}
 
 Taking in consideration that $v_s(t) = \sin(2\pi ft)$ and f = 1000Hz, the total response can be obtained by performing a transient analysis and the figure 12 can be obtained by plotting $v_s(t)$ and $v_6(t)$. 
-\usepackage{graphicx}
+
 \graphicspath{ {./images/} }
 
 a
@@ -65,14 +64,13 @@ a
 
 By excuting a frequency sweep, throughout the length of the interval [10^(-1), 10^(6)], we are able to plot the magnitude and phase, which appear below respectively.
 
-\usepackage{graphicx}
 \graphicspath{ {./images/} }
 
 a
 
 \includegraphics{universe}
 
-\usepackage{graphicx}
+
 \graphicspath{ {./images/} }
 
 a
