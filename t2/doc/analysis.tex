@@ -1,140 +1,219 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
+In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
+theoretically.
+
+\subsection{Nodal Analysis}
+
+The first step we took was analyzing the circuit for t<0 and by applying Kirchhoff's Current and voltage Laws we determined the currents in branches and voltage in nodes respectively. This are the equations used by us.
+
+In node 1 we also considered:
+\begin{equation}
+	V_1 = V_s | V_4 = 0
+\end{equation}
+
+
+Using the equations above, we get the following matrix equation:
+\usepackage{amsmath}
+\begin{gather}
+	\begin{bmatrix}
+		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
+		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
+		0 & K_b & 0 & 0 & -(K_b + G_5) & G_5 & 0 & 0 \\ 
+		0 & 0 & 0 & G_6 & 0 & 0 & -(G_6 + G_7) & G_7 \\
+		1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & -K_bG_6 & -1 & 0 & K_bG_6 & 1 \\
+		0 & G_3 & 0 & G_4 & -(G_3 + G_4 + G_5) & G_5 & G_7 & -G_7
+	\end{bmatrix}
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
+	=
+	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ V_s \\ 0 \\ 0 \end{bmatrix}
+\end{gather}
+
+Using octave we obtain the following table:
 \begin{table}[!h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-    {\bf Name} & {\bf Value [mA]} \\ \hline
-    \input{valores_constantes}
-  \end{tabular}
-  \caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-    and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-    Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-    Siemens; other variables are of type {\it voltage} and expressed in
-    Volt.}
-  \label{tab:op}
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{valores_constantes}
+	\end{tabular}
+	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
+		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
+		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
+		Siemens; other variables are of type {\it voltage} and expressed in
+		Volt.}
+	\label{tab:op}
 \end{table}
 
-In this section, the circuit shown in Figure~\ref{fig:rc} is analyzed
-theoretically, by two different methods, which use the characteristics of the components present in the circuit and one of the two Kirchhoff Laws.
+Using Ohms law, we can calculate the current flowing through each resistor, which are represented in the following table:
+ \begin{table}[!h]
+ 	\centering
+ 	\begin{tabular}{|l|r|}
+ 		\hline    
+ 		{\bf Name} & {\bf Value [mA]} \\ \hline
+ 		\input{valores_constantes}
+ 	\end{tabular}
+ 	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
+ 		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
+ 		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
+ 		Siemens; other variables are of type {\it voltage} and expressed in
+ 		Volt.}
+ 	\label{tab:op}
+ \end{table}
+ 
 
-For the Mesh method we used Kirchhoff's voltage law and for the nodal method we used Kirchhoff's current law.
-Besides the independent voltage sources and current sources, the other components of the circuit are, the resistors, which obey Ohm's law, and dependent voltage sources and current sources.
+\subsection{Equivalent Resistance}
+A set of equations were used, bearing in mind that the Thévenin Theorem was applied. By applying this theorem, all the independent tension sources were considered null, to study the influence of the condenser in the circuit, in order to obtain the circuit´s equivalent resistance in the perspective of the circuit extremities. We assumed that the tension $V_s = 0V$ and there was a passage from a constant value to null value, which was the result of the passage of a non-null current passing through the condenser. Also, since the voltage source interior resistance was null, it's the equivalent to cause a short-circuit to that source.
 
-The simulator uses a dummy voltage source placed in Node 6 to measure the current that passes through $I_c$, thus creating the Node 8, that has the same voltage as Node 6.
-
-\section{Mesh Method}
-
-\begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{mesh_diagram.pdf}
-\caption{Circuit analyzed in the lab.}
-\label{fig:rc1}
-\end{figure}
-
-
-To determine the values of the current that goes through the branches of circuit in the Figure~\ref{fig:rc} by the Mesh method, there's only the need to use 4 equations by applying Kirchhoff's voltage law or other relations to obtain the values of 4 unknown values of the currents $I_1$, $I_2$, $I_3$ and $I_4$, as the current of each branch can be obtained by a linear combination of these currents.
-	The first equation can be writen as:
-
+The Kirchhoff's Laws can also be applied here, leading to the same equations used in the section before. The rest of the equations can be obtained using the following equation:
 \begin{equation}
-  I_d = I_4.
-  \label{eq:kvl}
+	V_x = V_6 - V_8
 \end{equation}
 
-Applying Kirxhhoff's Voltage Law (KVL) to the Mesh with $I_3$ and to the Mesh with $I_1$, we get the following second and third equations:
-\begin{equation}
-  0 = R_4I_1 + (R_4 + R_6 + R_7-K_c)I_3,
-\end{equation}
+With former equations, we can form the matrix equation used bellow:
+\usepackage{amsmath}
+\begin{gather}
+	\begin{bmatrix}
+		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
+		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 1 & 0 & -1 \\ 
+		0 & 0 & 0 & G_6 & 0 & 0 & -(G_6 + G_7) & G_7 \\
+		1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & -K_dG_6 & -1 & 0 & K_dG_6 & 1 \\
+		-G_1 & G_1 & 0 & -(G_4 + G_6) & G_4 & 0 & G_7 & 0
+	\end{bmatrix}
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
+	=
+	\begin{bmatrix} 0 \\ 0 \\ V_x \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+	
+\end{gather}
 
-and
-\begin{equation}
-  V_a(t) = (R_1 + R_3 + R_4)I_1 + R_4I_3 R_3I_2.
-  \label{eq:kvl2}
-\end{equation}
-
-Knowing that:
-
-\begin{equation}
-  I_2 = I_b,
-  \label{eq:vo_sol}
-\end{equation}
-
-And
-\begin{equation}
-  v_b = \frac{I_b}{V_b} = \frac{I_2}{V_b}
-  \label{eq:vo_nat}
-\end{equation}
-
-We get the fourth equation:
-
-\begin{equation}
-  I_1(R_3K_b) + I_2(R_3K_b -1) = 0 
-\end{equation}
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-    {\bf Name} & {\bf Value [mA]} \\ \hline
-    \input{octave_theorical_current_values}
-  \end{tabular}
-  \caption{Operating point. A variable preceded by @ is of type {\em current}
-    and expressed in Ampere}
-  \label{tab:op}
-\end{table}
-
-\section{Nodal Method}\label{sec:frequency-response}
-
-In the nodal method, the circuit requires 6 equations to determine the values of V2, V3, V4, V5, V6, V7, which are obtained by applying Kirchhoff's current Law and a relation between the potential difference of two nodes and two other nodes, whose potential difference is imposed by a dependent voltage source. 
-
-Since we considered $V_0$ to be the ground, which means that $V_o$ = 0 and therefore:
-\begin{equation}
-	V_1 = V_a.
-	\label{eq:kvl}
-\end{equation}
-
-We get the following equations by applying Kirchhoff's current law at different nodes:
-
-For node 2 we have:
-\begin{equation}
-	 V_a\frac{1}{R_1} = V_2(\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}) + V_3\frac{-1}{R_2} + V_4\frac{-1}{R_3}.
-\end{equation}
-
-Node 3:
-\begin{equation}
-	0 = V_2(\frac{-1}{R_2} - K_b) + V_3\frac{1}{R_2} + V_4(K_b).
-\end{equation}
-
-Node 5:
-\begin{equation}
-	I_d = V_2(K_b) + V_4(\frac{-1}{R_5} - K_b) + V_5\frac{1}{R_5}.
-\end{equation}
-
-Node 6:
-\begin{equation}
-	0 = V_6(\frac{1}{R_6} + \frac{1}{R_7}) + V_7\frac{-1}{R_7} .
-\end{equation}
-
-Node 7:
-\begin{equation}
-	0 = V_4 + V_6(\frac{K_c}{R_6}) - V_7 .
-\end{equation}
-
-And finally for node 4:
-\begin{equation}
-	-I_d = V_2\frac{-1}{R_3} + V_4(\frac{1}{R_3} + \frac{1}{R_4} + \frac{1}{R_5}) + V_5\frac{-1}{R_5} + V_6\frac{-1}{R_7} + V_7\frac{1}{R_7}.
-\end{equation}
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-    {\bf Name} & {\bf Value [V]} \\ \hline
-    \input{octave_theorical_voltage_values}
-  \end{tabular}
-  \caption{Operating point. The variables are of type {\it voltage} and expressed in
-    Volt.}
-  \label{tab:op}
+Using octave we get the following data:
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{valores_constantes}
+	\end{tabular}
+	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
+		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
+		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
+		Siemens; other variables are of type {\it voltage} and expressed in
+		Volt.}
+	\label{tab:op}
 \end{table}
 
 
+\subsection{Natural Solution}
+
+In this section we will start by analyzing the natural solution ($V_6_n(t)$), where t varies from 0 to 20 ms, by using the equivalent resistance we calculated before.
+
+Assim that $V_0 = V_x$, the natural solution of the capacitor is  
+\begin{equation}
+	V_6_n(t) = V_xe^{-(t)/CR_e_q}
+\end{equation}
+
+We can now plot the graph of the solution for t raging from 0 to 20 ms:
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+	a
+	
+	\includegraphics{universe}
+	
+\subsection{Forced Solution}
+
+The nodal analysis of this circuit, is done with the tension phasor being equal to 1 and the condenser has an impedance of$\frac{1}{iwc}$.
+After this, we make the same analysis, which can be represented by the following matrix:
+\usepackage{amsmath}
+\begin{gather}
+	\begin{bmatrix}
+		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
+		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
+		0 & K_b & 0 & 0 & -(K_b + G_5) & Y_c + G_7 & 0 & -Y_c \\ 
+		0 & 0 & 0 & G_6 & 0 & 0 & -(G_6 + G_7) & G_7 \\
+		1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & -K_dG_6 & -1 & 0 & K_dG_6 & 1 \\
+		0 & G_3 & 0 & -G_4 & -(G_3 + G_4 + G_5) & G_5 + Y_c & G_7 & -(G_7 + Y_c)
+	\end{bmatrix}
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
+	=
+	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+	
+\end{gather}
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{valores_constantes}
+	\end{tabular}
+	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
+		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
+		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
+		Siemens; other variables are of type {\it voltage} and expressed in
+		Volt.}
+	\label{tab:op}
+\end{table}
+
+\subsection{Total Solution}
+We can obtain $v_6_t(t)$ (the total solution), by superimposing the natural(section 2.2.) and forced solutions (2.3) obtained before. Since we determined the function of the natural solution in section 2.2 we will now determine the forced solution.
+
+The complex equation of the phasor can be written as:
+\begin{equation}
+	v_6_f(t) = V_6sen(\omega t + \varphi_s)
+\end{equation}
+
+In the equation above, $\omega = 2\pi f = 2000\pi$ and $\varPhi$ is the argument of 
+
+By superimposing the equations of both the natural and forced solutions, we obtain this equation:
+
+\begin{equation}
+	v_6(t) = v_6_n(t) + V_6_f(t) = V_6sen(\omega t + \varphi_s) + V_xe^{-(1)/R_sC}
+\end{equation}
+
+By plotting this function, for t in range of -5 to 20 ms, we get the graph below:
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+a
+
+\includegraphics{universe}
+
+\subsection{Frequency Response}
+
+Lastly, we will analyze the frequency response of each phasor, by applying the same method used in section 2.4, with the exception that $Y_c$ wil remain as a variable ($Y_c(f) = j2\pi fC$).
+
+Considering:
+\begin{equation}
+	V_c(t) = V_6(t) - V_8(t)
+\end{equation} 
+
+Next we can plot the graphs of $V_c(t)$ and $V_6(t)$, as functions of f in range of $10^(-1)$ to $10^(6)$ Hz, which will be defined as logarithmic scales.
+
+The magnitude plot has values in dB, which respect the following equation:
+\begin{equation}
+	V_d_B = 20\log_10(V)
+\end{equation}
+
+The graphics of the plotted functions $v_c(f)$ and $v_6(f)$:
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+a
+
+\includegraphics{universe}
+
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+a
+
+\includegraphics{universe}
