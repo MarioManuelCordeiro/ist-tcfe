@@ -21,7 +21,7 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS) octave.log ngspice
 
 octave.log: Data.txt
 	octave ../mat/testar_téorico.m
-	octave ../mat/testar_coisas.m
+	octave ../mat/Testar_coisas.m
 
 ../mat/octave.log: Data.txt
 	make -C ../mat

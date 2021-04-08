@@ -1,14 +1,15 @@
 close all
 clear all
 format long
-i = 0;
-j = i;
-ficheiro = "../doc/data.txt";
+o = 0;
+m = o;
+ficheiro = "../data.txt";
 fg = fopen(ficheiro,"r");
+%A = dlmread(ficheiro);
 A = 1:11;
 str_null = '';
-while (j<100)
-   j = 1+j;
+while (o<100)
+   o = 1+o;
   fd = fgets(fg);
   if fd == -1
     break
@@ -17,10 +18,11 @@ while (j<100)
   a = str2num(fd(idx+1:end));
   if(isempty(a))
   else 
-    i = i+1;
-    A(i) =  a; 
+    m = m+1;
+    A(m) =  a; 
   end
   end
+A;
 fclose(fg);
 
 fid = fopen('circuit_data_1.cir',"w");
