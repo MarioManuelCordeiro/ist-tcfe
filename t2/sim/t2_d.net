@@ -1,0 +1,67 @@
+* Title: Simple circuit
+.options savecurrents
+
+*Description of the circuit
+
+*Independent Voltage source
+Va 1 0 5.23936486299
+
+*Independent Current source
+C1 6 8 1u
+
+*Dummy voltage source to measure the current in R6
+Vo 6 8 0
+
+*2 controled elements
+H1 4 7 Vo 8.25247516035K
+G1 5 3 2 4 7.31630468385m
+
+*Resist
+R1 1 2 1.04309563061K
+R2 3 2 2.01744623407K
+R3 2 4 3.13691375104K
+R4 4 0 4.15429988186K
+R5 4 5 3.07915362723K
+R6 0 6 2.02592738504K
+R7 8 7 1.04226655522K
+
+*.include ../doc/t2_4.cir
+
+.ic v(6) = 8.403876e+00
+.ic v(8) = 0
+
+.control
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+set units=degrees
+
+op
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 0.01m 20m
+hardcopy forced.ps v(1) v(6) {v(6)-v(8)}
+echo forced_FIG
+
+echo "********************************************"
+echo  "Frequency analysis"
+echo "********************************************"
+ac dec 100 0.1 1MEG
+hardcopy acm.ps vdb(6) vdb(1) db(v(6)-v(8))
+echo acm_FIG
+hardcopy acp.ps vp(6) vp(1)
+echo acp_FIG
+
+quit
+.endc
+
+.end
+

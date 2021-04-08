@@ -1,0 +1,16 @@
+* Title: Simple circuit
+.options savecurrents
+
+.include ../doc/t2_1.cir
+
+.control
+op
+echo  "op_TAB"
+print all
+echo  "op_END"
+
+quit
+.endc
+
+.end
+
