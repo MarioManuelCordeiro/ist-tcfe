@@ -1,7 +1,7 @@
 * Title: Simple circuit
 .options savecurrents
 
-.include ../doc/t2_3.cir
+.include ../doc/circuit_data_3.cir
 
 .ic v(6) = 8.403876e+00
 .ic v(8) = 0

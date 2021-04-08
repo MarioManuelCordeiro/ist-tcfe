@@ -1,7 +1,7 @@
 * Title: Simple circuit
 .options savecurrents
 
-.include ../doc/t2_2.cir
+.include ../doc/circuit_data_2.cir
 
 .control
 op
