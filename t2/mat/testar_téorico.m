@@ -221,7 +221,7 @@ H_total = figure();
  xlabel ("time [ms]");
  ylabel ("Voltage [V]");
  legend("V6(t)", "Vs(t)");
- print (H_total, "total_solution.eps", "-depsc");
+ print (H_total, "forced_solution.eps", "-depsc");
 
 
 %alínea 6 - confirmado

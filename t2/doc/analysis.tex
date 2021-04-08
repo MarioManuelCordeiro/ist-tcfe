@@ -161,11 +161,11 @@ After this, we make the same analysis, which can be represented by the following
 \end{table}
 
 \subsection{Total Solution}
-We can obtain $v_6_t(t)$ (the total solution), by superimposing the natural(section 2.2.) and forced solutions (2.3) obtained before. Since we determined the function of the natural solution in section 2.2 we will now determine the forced solution.
+We can obtain $v_6t(t)$ (the total solution), by superimposing the natural(section 2.2.) and forced solutions (2.3) obtained before. Since we determined the function of the natural solution in section 2.2 we will now determine the forced solution.
 
 The complex equation of the phasor can be written as:
 \begin{equation}
-	v_6_f(t) = V_6sen(\omega t + \varphi_s)
+	v_6f(t) = V_6sen(\omega t + \varphi_s)
 \end{equation}
 
 In the equation above, $\omega = 2\pi f = 2000\pi$ and $\varPhi$ is the argument of 
@@ -173,17 +173,17 @@ In the equation above, $\omega = 2\pi f = 2000\pi$ and $\varPhi$ is the argument
 By superimposing the equations of both the natural and forced solutions, we obtain this equation:
 
 \begin{equation}
-	v_6(t) = v_6_n(t) + V_6_f(t) = V_6sen(\omega t + \varphi_s) + V_xe^{-(1)/R_sC}
+	v_6(t) = v_6n(t) + V_6f(t) = V_6sen(\omega t + \varphi_s) + V_xe^{-(1)/R_sC}
 \end{equation}
 
 By plotting this function, for t in range of -5 to 20 ms, we get the graph below:
 
 
-\graphicspath{ {./images/} }
-
-a
-
-\includegraphics{universe}
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{forced_solution.eps}
+\caption{.}
+\label{fig:rc2}
+\end{figure}
 
 \subsection{Frequency Response}
 
@@ -198,7 +198,7 @@ Next we can plot the graphs of $V_c(t)$ and $V_6(t)$, as functions of f in range
 
 The magnitude plot has values in dB, which respect the following equation:
 \begin{equation}
-	V_d_B = 20\log_10(V)
+	V_dB = 20\log_10(V)
 \end{equation}
 
 The graphics of the plotted functions $v_c(f)$ and $v_6(f)$:

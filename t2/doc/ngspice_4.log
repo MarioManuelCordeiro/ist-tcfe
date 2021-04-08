@@ -1,0 +1,50 @@
+
+Circuit: * title: simple circuit
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+********************************************
+Transient analysis
+********************************************
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+1                                      5.02626
+2                                  1.67269e+14
+3                                  5.27924e+14
+4                                   1.4318e+14
+5                                 -3.80111e+14
+6                                      4.20194
+8                                      4.20194
+7                                  -2.0078e+14
+h1#branch                         -1.99667e+11
+vo#branch                          4.20194e+10
+vs#branch                          1.64755e+11
+
+
+No. of Data Rows : 2203
+
+The file "forced.ps" may be printed on a postscript printer.
+forced_FIG
+********************************************
+Frequency analysis
+********************************************
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 701
+Error: argument out of range for db
+com_hardcopy: graph not defined
+ERROR: (internal)  tried to destroy non-existent graph
+acm_FIG
+
+The file "acp.ps" may be printed on a postscript printer.
+acp_FIG
+ngspice-31 done
