@@ -28,17 +28,17 @@ while (o<100)
   end
 fclose(fg);
 doc_const = fopen("octave_constants_t_2.tex","w");
-fprintf(doc_const,"R(1) & %f \\\\  \\hline \n", A(1));
-fprintf(doc_const,"R(2) & %f \\\\  \\hline \n", A(2));
-fprintf(doc_const,"R(3) & %f \\\\  \\hline \n", A(3));
-fprintf(doc_const,"R(4) & %f \\\\  \\hline \n", A(4));
-fprintf(doc_const,"R(5) & %f \\\\  \\hline \n", A(5));
-fprintf(doc_const,"R(6) & %f \\\\  \\hline \n", A(6));
-fprintf(doc_const,"R(7) & %f \\\\  \\hline \n", A(7));
-fprintf(doc_const,"C & %f \\\\  \\hline \n", A(9));
+fprintf(doc_const,"§R(1) & %f K\\\\  \\hline \n", A(1));
+fprintf(doc_const,"§R(2) & %f K\\\\  \\hline \n", A(2));
+fprintf(doc_const,"§R(3) & %f K\\\\  \\hline \n", A(3));
+fprintf(doc_const,"§R(4) & %f K\\\\  \\hline \n", A(4));
+fprintf(doc_const,"§R(5) & %f K\\\\  \\hline \n", A(5));
+fprintf(doc_const,"§R(6) & %f K\\\\  \\hline \n", A(6));
+fprintf(doc_const,"§R(7) & %f K\\\\  \\hline \n", A(7));
+fprintf(doc_const,"!!C & %f u\\\\  \\hline \n", A(9));
 fprintf(doc_const,"Vs & %f \\\\  \\hline \n", A(8));
-fprintf(doc_const,"Kb & %f \\\\  \\hline \n", A(10));
-fprintf(doc_const,"Kd & %f \\\\  \\hline \n", A(11));
+fprintf(doc_const,"£Kb & %f m\\\\  \\hline \n", A(10));
+fprintf(doc_const,"§Kd & %f K\\\\  \\hline \n", A(11));
 fclose(doc_const);
 
 %% Numerical calculations

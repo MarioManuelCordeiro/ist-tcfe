@@ -68,6 +68,6 @@ clean:
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
 	@rm -rf *_tab.tex octave-workspace *.eps
 	@rm -rf *Ix.tex *voltages1.tex *voltages2.tex *v3_mag.tex *v3_ph.tex *Data.txt
-	@rm -rf *vx.txt *t2_a.cir *t2_b.cir *t2_c.cir *t2_d.cir *currents1.tex *Vx.tex
+	@rm -rf *diferenca_tensao.txt *circuit_data_1.cir *circuit_data_2.cir *circuit_data_3.cir *circuit_data_4.cir *currents1.tex *diferenca_tensao.tex *octave_constants_t_2.tex *octave_theorical_current_values_in_negative_time.tex *octave_theorical_current_values_in_zero_time.tex *octave_theorical_voltage_forced.tex *octave_theorical_voltage_values_in_negative_time.tex *octave_theorical_voltage_values_in_zero_time.tex
 
 .PHONY: all clean Data.txt ngspice octave

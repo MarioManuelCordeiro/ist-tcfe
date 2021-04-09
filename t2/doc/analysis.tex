@@ -26,8 +26,8 @@ Using the equations mentioned above, we get the following matrix equation:
 	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ V_s \\ 0 \\ 0 \end{bmatrix}
 \end{gather}
 
-
-\begin{table}[!h]
+Using octave we obtain the following table(~\ref{tab:op1}):
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -42,7 +42,8 @@ Using the equations mentioned above, we get the following matrix equation:
 	\label{tab:op1}
 \end{table}
 
- \begin{table}[!h]
+Using Ohms law, we can calculate the current flowing through each resistor, which are represented in the following table(~\ref{tab:op2}):
+ \begin{table}[H]
  	\centering
  	\begin{tabular}{|l|r|}
  		\hline    
@@ -57,28 +58,6 @@ Using the equations mentioned above, we get the following matrix equation:
  	\label{tab:op2}
  \end{table}
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Using octave we obtain the following table(~\ref{tab:op1}):
-
-Using Ohms law, we can calculate the current flowing through each resistor, which are represented in the following table(~\ref{tab:op2}):
-
 
 \subsection{Equivalent Resistance}
 
@@ -116,22 +95,19 @@ With the former equations, we can form the matrix equation used bellow:
 \end{gather}
 
 Using octave we get the following data:
-\begin{table}[!h]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
-		{\bf Name} & {\bf Value [mA]} \\ \hline
+		{\bf Name} & {\bf Value [V]} \\ \hline
 		\input{octave_theorical_voltage_values_in_zero_time}
 	\end{tabular}
-	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-		Siemens; other variables are of type {\it voltage} and expressed in
+	\caption{Constants provided by Python. The variables are of type {\it voltage} and expressed in
 		Volt.}
 	\label{tab:op3}
 \end{table}
 
-\begin{table}[!h]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -139,10 +115,7 @@ Using octave we get the following data:
 		\input{octave_theorical_current_values_in_zero_time}
 	\end{tabular}
 	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-		Siemens; other variables are of type {\it voltage} and expressed in
-		Volt.}
+		and expressed in Ampere.}
 	\label{tab:op4}
 \end{table}
 
@@ -158,7 +131,7 @@ As $V_0 = V_x$, the natural solution of the capacitor is
 
 We can now plot the graph of the solution for t raging from 0 to 20 ms:
 
-\begin{figure}[h] \centering
+\begin{figure}[H] \centering
 \includegraphics[width=0.6\linewidth]{natural.eps}
 \caption{.}
 \label{fig:rc1}
@@ -167,8 +140,9 @@ We can now plot the graph of the solution for t raging from 0 to 20 ms:
 \subsection{Forced Solution}
 
 The nodal analysis of this circuit, is done with the source tension phasor being equal to 1 and the condenser having an impedance of$\frac{1}{iwc}$.
-After this, we make the same analysis, which can be represented by the following matrix, taking the imaginary components as the real values(sin function):
-\begin{gather}
+After this, we make the same analysis, which can be represented by the following matrix, taking the imaginary components as the real values:
+
+\begin{equation*}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
 		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
@@ -183,19 +157,17 @@ After this, we make the same analysis, which can be represented by the following
 	=
 	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 
 	\end{bmatrix}
-\end{gather}
+\end{equation*}
 
-\begin{table}[!h]
+
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [V]} \\ \hline
 		\input{octave_theorical_voltage_forced}
 	\end{tabular}
-	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-		Siemens; other variables are of type {\it voltage} and expressed in
+	\caption{Constants provided by Python. The variables are of type {\it voltage} and expressed in
 		Volt.}
 	\label{tab:op5}
 \end{table}
@@ -208,13 +180,6 @@ The complex equation of the phasor can be written as:
 	v_6f(t) = V_6sen(\omega t + \varphi_s)
 \end{equation}
 
-\begin{figure}[!h] \centering
-\includegraphics[width=0.6\linewidth]{forced_solution.eps}
-\caption{.}
-\label{fig:rc2}
-\end{figure}
-
-
 In the equation above, $\omega = 2\pi f = 2000\pi$ and $\varPhi$ is the argument of 
 
 By superimposing the equations of both the natural and forced solutions, we obtain this equation:
@@ -224,6 +189,12 @@ By superimposing the equations of both the natural and forced solutions, we obta
 \end{equation}
 
 By plotting this function, for t in range of -5 to 20 ms, we get the graph below:
+
+\begin{figure}[H] \centering
+\includegraphics[width=0.6\linewidth]{forced_solution.eps}
+\caption{.}
+\label{fig:rc2}
+\end{figure}
 
 
 
@@ -246,7 +217,7 @@ The magnitude plot has values in dB, which respect the following equation:
 The graphics of the plotted functions $v_c(f)$ and $v_6(f)$:
 
 
-\begin{figure}[!h] \centering
+\begin{figure}[H] \centering
 \includegraphics[width=0.6\linewidth]{magnitude_response.pdf}
 \caption{.}
 \label{fig:rc4}
@@ -254,7 +225,7 @@ The graphics of the plotted functions $v_c(f)$ and $v_6(f)$:
 
 
 
-\begin{figure}[!h] \centering
+\begin{figure}[H] \centering
 \includegraphics[width=0.6\linewidth]{angle_response.pdf}
 \caption{.}
 \label{fig:rc5}
