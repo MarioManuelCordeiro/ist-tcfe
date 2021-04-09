@@ -3,8 +3,8 @@
 
 .include ../doc/circuit_data_4.cir
 
-.ic v(6) = 8.403876e+00
-.ic v(8) = 0
+.ic v(5) = 8.403876e+00
+.ic v(7) = 0
 
 .control
 *makes plots in color
@@ -24,16 +24,16 @@ echo "********************************************"
 echo  "Transient analysis"
 echo "********************************************"
 tran 0.01m 20m
-hardcopy forced.ps v(1) v(6) {v(6)-v(8)}
+hardcopy forced.ps v(1) v(5) {v(5)-v(7)}
 echo forced_FIG
 
 echo "********************************************"
 echo  "Frequency analysis"
 echo "********************************************"
 ac dec 100 0.1 1MEG
-hardcopy acm.ps vdb(6) vdb(1) db(v(6)-v(8))
+hardcopy acm.ps vdb(5) vdb(1) db(v(5)-v(7))
 echo acm_FIG
-hardcopy acp.ps vp(6) vp(1)
+hardcopy acp.ps vp(5) vp(1)
 echo acp_FIG
 
 quit

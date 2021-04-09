@@ -3,8 +3,8 @@
 
 .include ../doc/circuit_data_3.cir
 
-.ic v(6) = 8.403876e+00
-.ic v(8) = 0
+.ic v(5) = 8.403876e+00
+.ic v(7) = 0
 
 .control
 *makes plots in color
@@ -19,7 +19,7 @@ set color6=rgb:4/0/0
 
 op
 tran 0.01m 20m
-hardcopy trans.ps v(6)
+hardcopy trans.ps v(5)
 echo trans_FIG
 
 quit

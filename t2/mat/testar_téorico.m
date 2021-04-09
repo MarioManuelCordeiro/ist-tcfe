@@ -8,7 +8,7 @@ format long
 
 m = 0;
 o = m;
-ficheiro = "../data.txt";
+ficheiro = "../Data.txt";
 fg = fopen(ficheiro,"r");
 A = 1:11;
 str_null = '';
@@ -35,10 +35,10 @@ fprintf(doc_const,"R(4) & %f \\\\  \\hline \n", A(4));
 fprintf(doc_const,"R(5) & %f \\\\  \\hline \n", A(5));
 fprintf(doc_const,"R(6) & %f \\\\  \\hline \n", A(6));
 fprintf(doc_const,"R(7) & %f \\\\  \\hline \n", A(7));
-fprintf(doc_const,"C & %f \\\\  \\hline", A(9));
-fprintf(doc_const,"Vs & %f \\\\  \\hline", A(8));
-fprintf(doc_const,"Kb & %f \\\\  \\hline", A(10));
-fprintf(doc_const,"Kd & %f \\\\  \\hline", A(11));
+fprintf(doc_const,"C & %f \\\\  \\hline \n", A(9));
+fprintf(doc_const,"Vs & %f \\\\  \\hline \n", A(8));
+fprintf(doc_const,"Kb & %f \\\\  \\hline \n", A(10));
+fprintf(doc_const,"Kd & %f \\\\  \\hline \n", A(11));
 fclose(doc_const);
 
 %% Numerical calculations
@@ -100,6 +100,10 @@ fprintf(doc_current,"@R5[i] & %f \\\\ \\hline \n",(V_solucoes_1(4)-V_solucoes_1(
 fprintf(doc_current,"@R6[i] & %f \\\\ \\hline \n",(-V_solucoes_1(6))/R6*1000);
 fprintf(doc_current,"@R7[i] & %f \\\\ \\hline",(V_solucoes_1(6)-V_solucoes_1(7))/R7*1000);
 fclose(doc_current);
+
+fred = fopen("diferenca_tensao.txt","w");
+fprintf(fred,"%f",V_solucoes_1(5)-V_solucoes_1(7));
+fclose(fred);
 
 %2º alínea - certificado
 

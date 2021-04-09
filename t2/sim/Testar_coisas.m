@@ -3,7 +3,7 @@ clear all
 format long
 i = 0;
 j = i;
-fg = fopen('data.txt',"r");
+fg = fopen('Data.txt',"r");
 A = 1:11;
 str_null = '';
 while (j<100)
@@ -20,7 +20,6 @@ while (j<100)
     A(i) =  a; 
   end
   end
-A
 fclose(fg);
 
 fid = fopen('circuit_data_1.cir',"w");

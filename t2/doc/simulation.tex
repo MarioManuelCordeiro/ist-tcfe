@@ -1,22 +1,18 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-\subsection{Operating point Analysis (for t<0 and $v_s(t) = 0$)}
+\subsection{Operating point Analysis (for t<0 and Vs(t) = 0)}
 
-Ngspice was used to perform an operating point analysis for t<0 (obtaining table #) and by setting $v_s = 0$ and replacing the capacitor with a voltage sorce $V_x = V_6 - V_8$, the voltage and current values, present in tables below, were obtained.
+Ngspice was used to perform an operating point analysis for t<0 (obtaining the table below) and by setting $v_s = 0$ and replacing the capacitor with a voltage sorce $V_x = V_6 - V_8$, the voltage and current values, present in tables below, were obtained.
 
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [mA]} \\ \hline
-		\input{valores_constantes}
+		\input{op_1_tab}
 	\end{tabular}
-	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-		Siemens; other variables are of type {\it voltage} and expressed in
-		Volt.}
+	\caption{Current and voltage results obtained with Ngspice for t<0 }
 	\label{tab:op}
 \end{table}
 
@@ -27,13 +23,9 @@ Ngspice was used to perform an operating point analysis for t<0 (obtaining table
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [mA]} \\ \hline
-		\input{valores_constantes}
+		\input{op_2_tab}
 	\end{tabular}
-	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-		Siemens; other variables are of type {\it voltage} and expressed in
-		Volt.}
+	\caption{Current and voltage results obtained with Ngspice for Vs = 0}
 	\label{tab:op}
 \end{table}
 
@@ -44,9 +36,9 @@ The first step in order to compute the natural response of $v_6$ is to set $v_s(
 
 By analyzing the graphic we can see a quick drop in voltage from just a little above 8 ms to 0, which is due to the fact that the capacitor is just discharging and since there are no independent voltage sources, there is no voltage being provided to $v_6$.
 
-\begin{figure}[h] \centering
+\begin{figure}[!h] \centering
 \includegraphics[width=0.6\linewidth]{trans.pdf}
-\caption{.}
+\caption{Natural response}
 \label{fig:rc1}
 \end{figure}
 
@@ -55,9 +47,9 @@ By analyzing the graphic we can see a quick drop in voltage from just a little a
 
 Taking in consideration that $v_s(t) = \sin(2\pi ft)$ and f = 1000Hz, the total response can be obtained by performing a transient analysis and the figure 12 can be obtained by plotting $v_s(t)$ and $v_6(t)$. 
 
-\begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{trans.pdf}
-\caption{.}
+\begin{figure}[!h] \centering
+\includegraphics[width=0.6\linewidth]{global_voltage.eps}
+\caption{Stinulus voltage ,$v_s(t)$, shown in black and total response, $v_6(t)$, shown in green}
 \label{fig:rc1}
 \end{figure}
 
@@ -65,17 +57,17 @@ Taking in consideration that $v_s(t) = \sin(2\pi ft)$ and f = 1000Hz, the total 
 \subsection{Frequency Response}
 
 By excuting a frequency sweep, throughout the length of the interval [0.1, 1000000], we are able to plot the magnitude and phase, which appear below respectively.
-\begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{trans.pdf}
-\caption{.}
+\begin{figure}[!h] \centering
+\includegraphics[width=0.6\linewidth]{acm.pdf}
+\caption{Magnitude plot}
 \label{fig:rc1}
 \end{figure}
 
 
 
-\begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{trans.pdf}
-\caption{.}
+\begin{figure}[!h] \centering
+\includegraphics[width=0.6\linewidth]{acp.pdf}
+\caption{Phase plot}
 \label{fig:rc1}
 \end{figure}
 

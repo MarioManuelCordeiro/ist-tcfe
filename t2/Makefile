@@ -10,6 +10,8 @@ all:
 
 clean:
 	make -C doc clean
+py:
+	./t2_datagen.py 93533 > Data.txt
 
 .PHONY: all clean
 

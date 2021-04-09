@@ -8,7 +8,7 @@ format long
 
 m = 0;
 o = m;
-fg = fopen('data.txt',"r");
+fg = fopen("Data.txt","r");
 A = 1:11;
 str_null = '';
 while (o<100)
@@ -25,7 +25,7 @@ while (o<100)
     A(m) =  a; 
   end
   end
-A;
+fclose(fg);
 
 doc_const = fopen("octave_constants_t_2.tex","w");
 fprintf(doc_const,"R(1) & %f \\\\  \\hline \n", A(1));

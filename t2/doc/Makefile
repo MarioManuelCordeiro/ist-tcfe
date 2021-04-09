@@ -10,7 +10,7 @@ all: $(FILE).pdf
 	evince $< &
 
 Data.txt: ../t2_datagen.py
-	python2 $<
+	python2 $< $@
 	
 ngspice: ngspice_1 ngspice_2 ngspice_3 ngspice_4
 
@@ -68,6 +68,6 @@ clean:
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
 	@rm -rf *_tab.tex octave-workspace *.eps
 	@rm -rf *Ix.tex *voltages1.tex *voltages2.tex *v3_mag.tex *v3_ph.tex *Data.txt
-	@rm -rf *vx.txt *t2_1.cir *t2_2.cir *t2_3.cir *t2_4.cir *currents1.tex *Vx.tex
+	@rm -rf *vx.txt *t2_a.cir *t2_b.cir *t2_c.cir *t2_d.cir *currents1.tex *Vx.tex
 
 .PHONY: all clean Data.txt ngspice octave
