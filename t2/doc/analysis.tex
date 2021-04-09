@@ -18,15 +18,15 @@ Using the equations above, we get the following matrix equation:
 
 \begin{equation*}
 	\begin{bmatrix}
-		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
-		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
-		0 & K_b & 0 & 0 & -(K_b + G_5) & G_5 & 0 & 0 \\ 
-		0 & 0 & 0 & G_6 & 0 & 0 & -(G_6 + G_7) & G_7 \\
-		1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & -K_bG_6 & -1 & 0 & K_bG_6 & 1 \\
-		0 & G_3 & 0 & G_4 & -(G_3 + G_4 + G_5) & G_5 & G_7 & -G_7
+		G_1 & -(G_1 + G_2 + G_3) & G_2 & G_3 & 0 & 0 & 0 \\ 
+		0 & K_b + G_2 & -G_2 & -K_b & 0 & 0 & 0 \\
+		0 & K_b & 0 & -(K_b + G_5) & G_5 & 0 & 0 \\ 
+		0 & 0 & 0 & 0 & 0 & -(G_6 + G_7) & G_7 \\
+		1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 & K_bG_6 & -1 \\
+		0 & G_3 & 0 & -(G_3 + G_4 + G_5) & G_5 & G_7 & -G_7
 	\end{bmatrix}
-	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_5 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
 	=
 	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ V_s \\ 0 \\ 0 \end{bmatrix}
 \end{equation*}
@@ -68,15 +68,15 @@ The Kirchhoff's Laws can also be applied here, leading to the same equations use
 With former equations, we can form the matrix equation used bellow:
 \begin{equation*}
 	\begin{bmatrix}
-		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
-		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0 & 0 & 1 & 0 & -1 \\ 
-		0 & 0 & 0 & G_6 & 0 & 0 & -(G_6 + G_7) & G_7 \\
-		1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & -K_dG_6 & -1 & 0 & K_dG_6 & 1 \\
+		G_1 & -(G_1 + G_2 + G_3) & G_2 & G_3 & 0 & 0 & 0 \\ 
+		0 & K_b + G_2 & -G_2 & -K_b & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 1 & 0 & -1 \\ 
+		0 & 0 & 0 & 0 & -(G_6 + G_7) & G_7 \\
+		1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 & K_dG_6 & -1 \\
 		-G_1 & G_1 & 0 & -(G_4 + G_6) & G_4 & 0 & G_7 & 0
 	\end{bmatrix}
-	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_5 \\ V_6 \\ V_7 \\ V_8 
 	\end{bmatrix}
 	=
 	\begin{bmatrix} 0 \\ 0 \\ V_x \\ 0 \\ 0 \\ 0 \\ 0 
@@ -131,15 +131,15 @@ The nodal analysis of this circuit, is done with the tension phasor being equal 
 After this, we make the same analysis, which can be represented by the following matrix:
 \begin{equation*}
 	\begin{bmatrix}
-		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
-		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
-		0 & K_b & 0 & 0 & -(K_b + G_5) & Y_c + G_7 & 0 & -Y_c \\ 
-		0 & 0 & 0 & G_6 & 0 & 0 & -(G_6 + G_7) & G_7 \\
-		1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & -K_dG_6 & -1 & 0 & K_dG_6 & 1 \\
-		0 & G_3 & 0 & -G_4 & -(G_3 + G_4 + G_5) & G_5 + Y_c & G_7 & -(G_7 + Y_c)
+		G_1 & -(G_1 + G_2 + G_3) & G_2 & G_3 & 0 & 0 & 0 \\ 
+		0 & K_b + G_2 & -G_2 & -K_b & 0 & 0 & 0 \\
+		0 & K_b & 0 & -(K_b + G_5) & Y_c + G_7 & 0 & -Y_c \\ 
+		0 & 0 & 0 & 0 & 0 & -(G_6 + G_7) & G_7 \\
+		1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 & K_dG_6 & -1 \\
+		0 & G_3 & 0 & -(G_3 + G_4 + G_5) & G_5 + Y_c & G_7 & -(G_7 + Y_c)
 	\end{bmatrix}
-	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 
+	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_5 \\ V_6 \\ V_7 \\ V_8 
 	\end{bmatrix}
 	=
 	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 
