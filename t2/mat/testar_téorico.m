@@ -8,7 +8,7 @@ format long
 
 m = 0;
 o = m;
-ficheiro = "../Data.txt";
+ficheiro = "../doc/Data.txt";
 fg = fopen(ficheiro,"r");
 A = 1:11;
 str_null = '';

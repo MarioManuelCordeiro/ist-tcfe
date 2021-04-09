@@ -8,10 +8,15 @@ theoretically.
 
 The first step we took was analyzing the circuit for t<0 and by applying Kirchhoff's Current and voltage Laws we determined the currents in branches and voltage in nodes respectively. This are the equations used by us.
 
+In node 1 we also considered:
+\begin{equation}
+	V_1 = V_s | V_4 = 0
+\end{equation}
 
-Using the equations mentioned above, we get the following matrix equation:
 
-\begin{gather}
+Using the equations above, we get the following matrix equation:
+
+\begin{equation*}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
 		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
@@ -24,60 +29,44 @@ Using the equations mentioned above, we get the following matrix equation:
 	\begin{bmatrix} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_6 \\ V_7 \\ V_8 \end{bmatrix}
 	=
 	\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ V_s \\ 0 \\ 0 \end{bmatrix}
-\end{gather}
+\end{equation*}
 
-Using octave we obtain the following table(~\ref{tab:op1}):
-\begin{table}[H]
+Using octave we obtain the following table:
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [mA]} \\ \hline
 		\input{octave_theorical_voltage_values_in_negative_time}
 	\end{tabular}
-	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
-		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
-		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
-		Siemens; other variables are of type {\it voltage} and expressed in
-		Volt.}
-	\label{tab:op1}
+	\caption{Voltage of the 8 nodes present in the circuit}
+	\label{tab:op}
 \end{table}
 
-Using Ohms law, we can calculate the current flowing through each resistor, which are represented in the following table(~\ref{tab:op2}):
- \begin{table}[H]
+
+Using Ohms law, we can calculate the current flowing through each resistor, which are represented in the following table:
+ \begin{table}[h!]
  	\centering
  	\begin{tabular}{|l|r|}
  		\hline    
  		{\bf Name} & {\bf Value [mA]} \\ \hline
  		\input{octave_theorical_current_values_in_negative_time}
  	\end{tabular}
- 	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
- 		and expressed in Ampere;a variable preceded by § is of type {\it resistence} and expressed in
- 		Ohms;a variable preceded by £ is of type {\it conductance} and expressed in
- 		Siemens; other variables are of type {\it voltage} and expressed in
- 		Volt.}
- 	\label{tab:op2}
+ 	\caption{Current values of the 8 nodes present in the circuit}
+ 	\label{tab:op}
  \end{table}
  
 
 \subsection{Equivalent Resistance}
+A set of equations were used, bearing in mind that the Thévenin Theorem was applied. By applying this theorem, all the independent tension sources were considered null, to study the influence of the condenser in the circuit, in order to obtain the circuit's equivalent resistance in the perspective of the circuit extremities. We assumed that the tension $V_s = 0V$ and there was a passage from a constant value to null value, which was the result of the passage of a non-null current passing through the condenser. Also, since the voltage source interior resistance was null, it's the equivalent to cause a short-circuit to that source.
 
-A set of equations were used, bearing in mind that the Thévenin Theorem was applied. By applying this theorem, all the independent tension sources were considered null, to study the influence of the condenser in the circuit, in order to obtain the circuit's equivalent resistance in the perspective of the capacitor's extremities. We assumed that the tension $V_s = 0V$ and there was a passage from a constant value to null value, which was the result of the passage of a non-null current passing through the condenser. Also, since the voltage source interior resistance was null, it's the equivalent to cause a short-circuit to that source.
-
-In node 1 we also considered:
+The Kirchhoff's Laws can also be applied here, leading to the same equations used in the section before. The rest of the equations can be obtained using the following equation:
 \begin{equation}
-	V_1 = V_s,
-	V_4 = 0.
+	V_x = V_6 - V_8
 \end{equation}
 
-The Kirchhoff's Laws can also be applied here, leading to the same equations used in the section above, eventhough slightly changed, due the change in the source tension. The rest of the equations can be obtained using the following equation:
-\begin{equation}
-	V_x = V_6 - V_8.
-\end{equation}
-
-
-
-With the former equations, we can form the matrix equation used bellow:
-\begin{gather}
+With former equations, we can form the matrix equation used bellow:
+\begin{equation*}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
 		0 & K_b + G_2 & -G_2 & 0 & -K_b & 0 & 0 & 0 \\
@@ -92,31 +81,30 @@ With the former equations, we can form the matrix equation used bellow:
 	=
 	\begin{bmatrix} 0 \\ 0 \\ V_x \\ 0 \\ 0 \\ 0 \\ 0 
 	\end{bmatrix}
-\end{gather}
+\end{equation*}
 
 Using octave we get the following data:
-\begin{table}[H]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
-		{\bf Name} & {\bf Value [V]} \\ \hline
+		{\bf Name} & {\bf Value [mA]} \\ \hline
 		\input{octave_theorical_voltage_values_in_zero_time}
 	\end{tabular}
-	\caption{Constants provided by Python. The variables are of type {\it voltage} and expressed in
-		Volt.}
-	\label{tab:op3}
+	\caption{Theoretical voltage values for t = 0}
+	\label{tab:op}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [mA]} \\ \hline
 		\input{octave_theorical_current_values_in_zero_time}
 	\end{tabular}
-	\caption{Constants provided by Python. A variable preceded by @ is of type {\em current}
+	\caption{Theoretical current values for t = 0. A variable preceded by @ is of type {\em current}
 		and expressed in Ampere.}
-	\label{tab:op4}
+	\label{tab:op}
 \end{table}
 
 
@@ -124,24 +112,23 @@ Using octave we get the following data:
 
 In this section we will start by analyzing the natural solution , where t varies from 0 to 20 ms, by using the equivalent resistance we calculated before.
 
-As $V_0 = V_x$, the natural solution of the capacitor is  
+Assim that $V_0 = V_x$, the natural solution of the capacitor is  
 \begin{equation}
 	V_6n(t) = V_xe^{-(t)/CR_eq}
 \end{equation}
 
 We can now plot the graph of the solution for t raging from 0 to 20 ms:
 
-\begin{figure}[H] \centering
+\begin{figure}[h!] \centering
 \includegraphics[width=0.6\linewidth]{natural.eps}
-\caption{.}
+\caption{Natural solution}
 \label{fig:rc1}
 \end{figure}
 	
 \subsection{Forced Solution}
 
-The nodal analysis of this circuit, is done with the source tension phasor being equal to 1 and the condenser having an impedance of$\frac{1}{iwc}$.
-After this, we make the same analysis, which can be represented by the following matrix, taking the imaginary components as the real values:
-
+The nodal analysis of this circuit, is done with the tension phasor being equal to 1 and the condenser has an impedance of$\frac{1}{iwc}$.
+After this, we make the same analysis, which can be represented by the following matrix:
 \begin{equation*}
 	\begin{bmatrix}
 		G_1 & -(G_1 + G_2 + G_3) & G_2 & 0 & G_3 & 0 & 0 & 0 \\ 
@@ -159,17 +146,15 @@ After this, we make the same analysis, which can be represented by the following
 	\end{bmatrix}
 \end{equation*}
 
-
-\begin{table}[H]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [V]} \\ \hline
 		\input{octave_theorical_voltage_forced}
 	\end{tabular}
-	\caption{Constants provided by Python. The variables are of type {\it voltage} and expressed in
-		Volt.}
-	\label{tab:op5}
+	\caption{Eletric potential of the 8 nodes in the circuit}
+	\label{tab:op}
 \end{table}
 
 \subsection{Total Solution}
@@ -180,6 +165,13 @@ The complex equation of the phasor can be written as:
 	v_6f(t) = V_6sen(\omega t + \varphi_s)
 \end{equation}
 
+\begin{figure}[h!] \centering
+\includegraphics[width=0.6\linewidth]{forced_solution.eps}
+\caption{Total solution $v_6(t)$}
+\label{fig:rc2}
+\end{figure}
+
+
 In the equation above, $\omega = 2\pi f = 2000\pi$ and $\varPhi$ is the argument of 
 
 By superimposing the equations of both the natural and forced solutions, we obtain this equation:
@@ -189,12 +181,6 @@ By superimposing the equations of both the natural and forced solutions, we obta
 \end{equation}
 
 By plotting this function, for t in range of -5 to 20 ms, we get the graph below:
-
-\begin{figure}[H] \centering
-\includegraphics[width=0.6\linewidth]{forced_solution.eps}
-\caption{.}
-\label{fig:rc2}
-\end{figure}
 
 
 
@@ -217,17 +203,17 @@ The magnitude plot has values in dB, which respect the following equation:
 The graphics of the plotted functions $v_c(f)$ and $v_6(f)$:
 
 
-\begin{figure}[H] \centering
+\begin{figure}[h!] \centering
 \includegraphics[width=0.6\linewidth]{magnitude_response.pdf}
-\caption{.}
+\caption{Magnitude plot}
 \label{fig:rc4}
 \end{figure}
 
 
 
-\begin{figure}[H] \centering
+\begin{figure}[h!] \centering
 \includegraphics[width=0.6\linewidth]{angle_response.pdf}
-\caption{.}
+\caption{Phase plot}
 \label{fig:rc5}
 \end{figure}
 

@@ -3,7 +3,7 @@ clear all
 format long
 o = 0;
 m = o;
-ficheiro = "../Data.txt";
+ficheiro = "../doc/Data.txt";
 fg = fopen(ficheiro,"r");
 %A = dlmread(ficheiro);
 A = 1:11;

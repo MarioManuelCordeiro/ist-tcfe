@@ -10,7 +10,7 @@ all: $(FILE).pdf
 	evince $< &
 
 Data.txt: ../t2_datagen.py
-	python2 $< $@
+	python2 $< > $@
 	
 ngspice: ngspice_1 ngspice_2 ngspice_3 ngspice_4
 
