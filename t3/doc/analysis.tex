@@ -1,0 +1,59 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
+theoretically.
+
+
+\subsection{envelope detector}
+
+In this section we will start by analyzing the envelope detector, where t varies from 0 to 20 ms, by using the main equation we see below:
+\begin{equation}
+	V_6n(t) = V_xe^{-(t)/CR_eq}
+\end{equation}
+
+We can now plot the graph of the solution for t raging from 0 to 20 ms:
+
+\begin{figure}[h!] \centering
+\includegraphics[width=0.6\linewidth]{}
+\caption{Natural solution}
+\label{fig:rc1}
+\end{figure}
+	
+\subsection{voltage regulator}
+
+The voltage regulator theoretical analysis of this circuit, like with the envelope detector is done with the help of a key equation below:
+\begin{equation}
+	V_6n(t) = V_xe^{-(t)/CR_eq}
+\end{equation}
+
+After this, we can plot the following graphic:
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.6\linewidth]{}
+	\caption{Natural solution}
+	\label{fig:rc1}
+\end{figure}
+
+
+\subsection{Error}
+
+Lastly, we will analyze the error plot, which like in the simulation analysis will give us the deviation in our results.
+
+Considering:
+\begin{equation}
+	V_c(t) = V_6(t) - V_8(t)
+\end{equation} 
+
+
+
+The graphics of the error is:
+
+
+\begin{figure}[h!] \centering
+\includegraphics[width=0.6\linewidth]{}
+\caption{Magnitude plot}
+\label{fig:rc4}
+\end{figure}
+
+
+
