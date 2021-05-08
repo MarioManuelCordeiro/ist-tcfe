@@ -68,7 +68,7 @@ hardcopy output_voltage_regulator.ps v(2)
 
 hardcopy error.ps v(2)-12
 
-
+quit
 
 
 .endc
