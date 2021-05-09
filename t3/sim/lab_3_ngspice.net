@@ -62,11 +62,11 @@ let ripple = {maximum(v(2))-minimum(v(2))}
 
 print mean ripple
 	
-hardcopy output_envelope_detector.ps v(1)
+hardcopy output_envelope_detector_1.eps v(1)
 
-hardcopy output_voltage_regulator.ps v(2)
+hardcopy output_voltage_regulator_1.eps v(2)
 
-hardcopy error.ps v(2)-12
+hardcopy error_1.eps v(2)-12
 
 quit
 

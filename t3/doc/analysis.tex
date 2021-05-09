@@ -1,7 +1,7 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
+In this section, the circuit created and used by us is analysed
 theoretically.
 The key equations for all the theoretical analysis ar shown below:
 To compute $`t_on$
@@ -10,7 +10,6 @@ To compute $`t_on$
 \end{equation}
 
 In which $i_D = i_R + i_C$
-
 To compute $t_on$ we use the equation
 \begin{equation}
 	(V_s/n)*cos(w*t_off) = -(V_s/n)*cos(w*t_off)*(e^{(-1/R_eq*C)*(t_on - T_off)}
@@ -18,14 +17,10 @@ To compute $t_on$ we use the equation
 
 
 \subsection{envelope detector}
-
 In this section we will start by analyzing the envelope detector, where t varies from 0 to 20 ms, by using the main equations above.
-\begin{equation}
-	V_6n(t) = V_xe^{-(t)/CR_eq}
-\end{equation}
 
 Using octave we obtain the following table:
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -37,22 +32,17 @@ Using octave we obtain the following table:
 \end{table}
 
 We can now plot the graph of the solution for t raging from 0 to 20 ms:
-
-\begin{figure}[h!] \centering
+\begin{figure}[H] \centering
 \includegraphics[width=0.6\linewidth]{Output_Envelope_Detector.eps}
 \caption{envelop detector output}
 \label{fig:rc1}
 \end{figure}
 	
 \subsection{voltage regulator}
-
 The voltage regulator theoretical analysis of this circuit, like with the envelope detector is done with the help of a key equation above.
-\begin{equation}
-	V_6n(t) = V_xe^{-(t)/CR_eq}
-\end{equation}
 
 After this, we can plot the following graphic:
-\begin{figure}[h!] \centering
+\begin{figure}[H] \centering
 	\includegraphics[width=0.6\linewidth]{Output_Voltage_Regulater.eps}
 	\caption{Voltage regulator output}
 	\label{fig:rc1}
@@ -60,20 +50,10 @@ After this, we can plot the following graphic:
 
 
 \subsection{Voltage regulator deviation}
-
 Lastly, we will analyze the voltage regulator deviation plot, which like in the error subsection of the simulation analysis will give us the deviation in our results.
 
-Considering:
-\begin{equation}
-	V_c(t) = V_6(t) - V_8(t)
-\end{equation} 
-
-
-
 The graphics of the voltage deviation is:
-
-
-\begin{figure}[h!] \centering
+\begin{figure}[H] \centering
 \includegraphics[width=0.6\linewidth]{Output_Voltage_Regulater_deviations.eps}
 \caption{Voltage deviation plot}
 \label{fig:rc4}

@@ -124,7 +124,7 @@ H_total = figure();
 
 %output DC level and Voltage ripple.
 
-doc_results_3 = fopen("octave_theorical_results_3.tex","w");
+doc_results_3 = fopen("../doc/octave_theorical_results_3.tex","w");
 fprintf(doc_results_3,"DC Level & %f \\\\  \\hline \n", mean(V_out));
 fprintf(doc_results_3,"Voltage ripple & %f \\\\  \\hline \n", max(V_out)-min(V_out));
 fclose(doc_results_3);
