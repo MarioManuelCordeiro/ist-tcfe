@@ -1,0 +1,88 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In the following subsections, we will explain the theoretical analysis made to predict the output voltages and impedance in the Gain and Output, designed by the teacher previously.
+It's important to mention that the gain stage and output parameters are in the same table and the gain stage and output stage results as well.
+
+\subsection{Gain Stage}
+
+In the table below we have the most important values used to design the circuit for the gain stage:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{octave_Constants_used_t_4.tex}
+	\end{tabular}
+	\caption{Octave Parameters}
+	\label{tab:op}
+\end{table}
+
+The circuit is constituted by tow stages, an initial stage with an high input and output impedance, and a second stage a high input impedance, low output impedance and with a gain close to one.
+The results we obtained, by the method described above, are present in the following table
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{octave_OP_t_4.tex}
+	\end{tabular}
+	\caption{Octave operating point results}
+	\label{tab:op}
+\end{table}
+	
+If we pay attention to the values obtained, we notice that the output impedance is too high, so the circuit cannot be connected to an 80hm load and, therefore, we need an output stage.
+\subsection{Output Stage}
+As mentioned previously, we need the output stage to induce a low impedance to the load and the parameters for this circuit are shown below:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{octave_Constants_used_t_4.tex}
+	\end{tabular}
+	\caption{Octave parameters}
+	\label{tab:op}
+\end{table}
+
+
+As seen before, the operating point and incremental analysis were acquired in order to find the output impedance and gain.
+The results can be seen below: 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{octave_OP_t_4.tex}
+	\end{tabular}
+	\caption{Octave operating point results}
+	\label{tab:op}
+\end{table}
+
+Our objective was to get a gain for the output stage as close to one as possible and a low output impedance, which is exactly what we accomplished and it also means that its ideal to connect the load.
+
+\subsection{Total Results}
+Lastly, we will analyze the frequency response of the gain and plot it into a graphic as the one below. 
+
+The graphics of the voltage deviation is:
+\begin{figure}[H] \centering
+\includegraphics[width=0.6\linewidth]{magnitude_response_gain.eps}
+\caption{Voltage deviation plot}
+\label{fig:rc4}
+\end{figure}
+
+The results (of higher importance) obtained for the total circuit are shown in the next table: 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{octave_OP_t_4.tex}
+	\end{tabular}
+	\caption{Total circuit results}
+	\label{tab:op}
+\end{table}
+
+Just by observing this results, we can understand that both stages can be connected without any major signal loss and the reason is that the output impedance is significantly smaller than the input impedance of the output stage.
