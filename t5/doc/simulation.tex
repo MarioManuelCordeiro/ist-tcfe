@@ -1,0 +1,61 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+\subsection{Frequency analysis}
+the simulated values we obtained are represented in the graphics and tables present along this section and allow us to understand and estimate the behavior of the circuit. We will add some comments to the results and in the conclusion we will compare them to the theoretical analysis, which was done in order to obtain the gain of the circuit.
+
+In the following graphics, we obtained $V_out$, in dB, in function of the frequency, as well as, the phase function:
+\begin{figure}[H] \centering
+	\includegraphics[width=0.6\linewidth]{../sim/vo1f.pdf}
+	\caption{Vout (dB)}
+	\label{fig:rc4}
+\end{figure}
+
+\begin{figure}[H] \centering
+	\includegraphics[width=0.6\linewidth]{phase.eps}
+	\caption{Phase}
+	\label{fig:rc4}
+\end{figure}
+
+We can also express $V_out$ in function of time for a frequency of 1KHz, shown in the table below:
+\begin{figure}[H] \centering
+	\includegraphics[width=0.6\linewidth]{../sim/vo1.pdf}
+	\caption{Vout (dB) in function of time}
+	\label{fig:rc4}
+\end{figure}
+
+From this analysis, we obtained the simulated values for the output voltage gain, the central frequency, the input and output impedance, as well as, the values for the upper, lower cut off and central frequencies. The merit figure is also present in the first table:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{../sim/resultados_tab.tex}
+	\end{tabular}
+	\caption{Resultados}
+	\label{tab:op}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{../sim/Input_Impendence_tab.tex}
+	\end{tabular}
+	\caption{input impedance}
+	\label{tab:op}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{../sim/Impendences_tab.tex}
+	\end{tabular}
+	\caption{output impedance}
+	\label{tab:op}
+\end{table}
+

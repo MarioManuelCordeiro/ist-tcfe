@@ -1,0 +1,31 @@
+.options savecurrents
+
+*.include Output_Impedance.cir
+.include col_out.cir
+.op
+.end
+
+.control
+
+* frequency analysis
+ac dec 10 10 100MEG
+
+*meas AC central_vout FIND v(out) AT=1000
+*meas AC central_current_vin  FIND i(Vout)  AT=1000
+*let OutImp = central_vout/central_current_vin/1000
+
+let OutImp = -v(out)[20]/i(Vout)[20]/1000
+let OutImp_Real = Real(OutImp)
+let OutImp_Im = Im(OutImp)
+
+echo "Impendences_TAB"
+*input impedance in kohm
+*output impedance in ohm
+echo "Output Impendence = $&OutImp_Real + $&OutImp_Im i KOhm"
+echo "Impendences_END"
+
+*plot vdb(out) vdb(dummy1)/100 vdb(dummy1)[40]/100
+*print v(out)[50]
+*print v(dummy1)[50]/100
+
+.endc

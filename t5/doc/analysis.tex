@@ -1,0 +1,60 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+In this section we will do the theoretical analysis of our circuit.
+The transfer function corresponds to the following equation:
+\begin{equation}
+	T(s) = (R_1C_1s/(1 + R_1C_1s))*(1 + R_3/R_4)*(1/(1 + R_2C_2s)))
+\end{equation}
+
+in which, $s = (2\pi*f)*j$
+The frequency of the low pass filter is:
+\begin{equation}
+	f_L*2\pi = 1/R_2C_2
+\end{equation}
+
+The frequency of the high pass filter is:
+\begin{equation}
+	f_H*2\pi = 1/R_1C_1
+\end{equation}
+
+taking into account the equations above, the central frequency can be expressed as:
+\begin{equation}
+	f_c = \sqrt{f_L*f_H}
+\end{equation}
+
+The equations for the input impedance is the following:
+\begin{equation}
+	Z_in = R_1 + 1/jw_cC_1
+\end{equation}
+
+The output impedance can be expressed as:
+\begin{equation}
+	Z_out = 1/(jw_cC_2 + (1/R_2))
+\end{equation}
+	
+In the following graphics, we plotted the output voltage gain and phase functions:
+\begin{figure}[H] \centering
+\includegraphics[width=0.6\linewidth]{magnitude_response_gain.eps}
+\caption{Output voltage gain plot}
+\label{fig:rc4}
+\end{figure}
+
+\begin{figure}[H] \centering
+	\includegraphics[width=0.6\linewidth]{phase_response_gain.eps}
+	\caption{Phase plot}
+	\label{fig:rc4}
+\end{figure}
+
+In the next table, we have, the frequencies, gain and impedances mentioned above, as well as, the merit figure: 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [mA]} \\ \hline
+		\input{octave_results_t_4.tex}
+	\end{tabular}
+	\caption{octave results}
+	\label{tab:op}
+\end{table}
